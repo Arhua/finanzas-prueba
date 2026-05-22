@@ -1,0 +1,19 @@
+{
+  "name": "nexocash-financial-app",
+  "version": "1.0.0",
+  "description": "Aplicacion web responsive para controlar ingresos, gastos, alertas y resumen mensual.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "check": "node --check server.js && node --check app.js"
+  },
+  "keywords": [
+    "finanzas",
+    "ingresos",
+    "gastos",
+    "railway"
+  ],
+  "author": "",
+  "license": "MIT"
+}

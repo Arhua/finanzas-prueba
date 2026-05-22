@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NexoCash - Control Financiero</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="app-shell">
+    <nav class="topbar">
+      <div class="nav-actions" aria-label="Navegacion principal">
+        <button class="nav-button is-active" data-target="ingresos">Ingresos</button>
+        <button class="nav-button" data-target="gastos">Gastos</button>
+        <button class="nav-button" data-target="grafico">Grafico</button>
+      </div>
+      <div class="logo" aria-label="Logo NexoCash">NexoCash</div>
+    </nav>
+
+    <section class="hero">
+      <div>
+        <span>Balance mensual</span>
+        <h1>Control financiero</h1>
+      </div>
+      <strong id="hero-balance">$0</strong>
+    </section>
+
+    <section class="status-strip" aria-label="Indicadores principales">
+      <article>
+        <span>Total ingresos</span>
+        <strong id="total-income">$0</strong>
+      </article>
+      <article>
+        <span>Total gastos</span>
+        <strong id="total-expenses">$0</strong>
+      </article>
+      <article>
+        <span>Uso del ingreso</span>
+        <strong id="usage-percent">0%</strong>
+      </article>
+    </section>
+
+    <section class="dashboard-grid" aria-label="Gestion financiera mensual">
+      <article class="panel" id="ingresos">
+        <div class="panel-heading">
+          <h2>Ingresos detallados</h2>
+          <strong id="income-heading-total">$0</strong>
+        </div>
+        <form class="entry-form" id="income-form">
+          <label>
+            Referencia
+            <input name="reference" type="text" placeholder="REF-ING-001" required>
+          </label>
+          <label>
+            Concepto
+            <input name="name" type="text" placeholder="Salario mensual" required>
+          </label>
+          <label>
+            Valor
+            <input name="amount" type="number" min="1" step="1000" placeholder="3600000" required>
+          </label>
+          <button type="submit">Agregar ingreso</button>
+        </form>
+        <ul class="money-list" id="income-list"></ul>
+      </article>
+
+      <article class="panel" id="gastos">
+        <div class="panel-heading">
+          <h2>Gastos detallados</h2>
+          <strong id="expense-heading-total">$0</strong>
+        </div>
+        <form class="entry-form" id="expense-form">
+          <label>
+            Referencia
+            <input name="reference" type="text" placeholder="REF-GAS-031" required>
+          </label>
+          <label>
+            Concepto
+            <input name="name" type="text" placeholder="Arriendo" required>
+          </label>
+          <label>
+            Valor
+            <input name="amount" type="number" min="1" step="1000" placeholder="1650000" required>
+          </label>
+          <button type="submit">Agregar gasto</button>
+        </form>
+        <ul class="money-list expense-list" id="expense-list"></ul>
+      </article>
+
+      <aside class="alert-card" id="alert-card">
+        <img src="assets/alarm-financial.svg" alt="Alarma financiera">
+        <div>
+          <span id="alert-status">Alarma activa</span>
+          <h2 id="alert-title">Presupuesto saludable</h2>
+          <p id="alert-message">Agrega ingresos y gastos para medir el estado del mes.</p>
+        </div>
+      </aside>
+
+      <article class="summary-card">
+        <h2>Resumen mensual</h2>
+        <div class="summary-row"><span>Total ingresos</span><strong id="summary-income">$0</strong></div>
+        <div class="summary-row"><span>Total gastos</span><strong id="summary-expenses">$0</strong></div>
+        <div class="summary-row"><span>Balance</span><strong id="summary-balance">$0</strong></div>
+        <div class="summary-row"><span>Mayor gasto</span><strong id="largest-expense">Sin gastos</strong></div>
+        <div class="bar-track" aria-label="Porcentaje de gastos frente a ingresos"><span id="usage-bar"></span></div>
+      </article>
+
+      <article class="chart-card" id="grafico">
+        <div class="panel-heading">
+          <h2>Grafico mensual</h2>
+          <strong id="chart-caption">Ingresos vs gastos</strong>
+        </div>
+        <canvas id="monthly-chart" width="720" height="320" aria-label="Grafico mensual de ingresos y gastos"></canvas>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
